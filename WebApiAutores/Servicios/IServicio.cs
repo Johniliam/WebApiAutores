@@ -36,7 +36,7 @@ namespace WebApiAutores.Servicios
 
         public void RealizarTarea()
         {
-            throw new NotImplementedException();
+            //zthrow new NotImplementedException();
         }
     }
     public class ServicioB : IServicio

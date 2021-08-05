@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,7 @@ namespace WebApiAutores.Controllers
 {
     [ApiController]
     [Route("api/autores")]
+    [Authorize]
     public class AutoresController : ControllerBase
     {
         private readonly ApplicationDbContext context;
@@ -19,15 +22,18 @@ namespace WebApiAutores.Controllers
         private readonly ServicioTransient servicioTransient;
         private readonly ServicioScoped servicioScoped;
         private readonly ServicioSingleton servicioSingleton;
+        private readonly ILogger<AutoresController> logger;
 
-        public AutoresController(ApplicationDbContext context, IServicio servicio, ServicioTransient servicioTransient, 
-            ServicioScoped servicioScoped, ServicioSingleton servicioSingleton)
+        public AutoresController(ApplicationDbContext context, IServicio servicio,
+            ServicioTransient servicioTransient, ServicioScoped servicioScoped,
+            ServicioSingleton servicioSingleton, ILogger<AutoresController> logger)
         {
             this.context = context;
             this.servicio = servicio;
             this.servicioTransient = servicioTransient;
             this.servicioScoped = servicioScoped;
             this.servicioSingleton = servicioSingleton;
+            this.logger = logger;
         } 
 
         [HttpGet]               // api/autores               => RUTA
@@ -35,6 +41,8 @@ namespace WebApiAutores.Controllers
         [HttpGet("/listado")]   // listado                   => RUTA
         public async Task<ActionResult<List<Autor>>> Get()
         {
+            logger.LogInformation("Log de informacion");
+            logger.LogWarning("Warning Log especial 2.0");
             servicio.RealizarTarea();
             return await context.Autores.Include(x => x.Libros).ToListAsync();
         }
@@ -96,6 +104,7 @@ namespace WebApiAutores.Controllers
         }
 
         [HttpGet("GUID")]
+        [ResponseCache(Duration = 10)]
         public ActionResult ObtenerGuids()
         {
             return Ok(new
