@@ -1,0 +1,24 @@
+Proceso Iniciado
+Proceso en ejecuccion: 10/08/2021 02:41:42
+Proceso en ejecuccion: 10/08/2021 02:41:47
+Proceso en ejecuccion: 10/08/2021 02:41:52
+Proceso en ejecuccion: 10/08/2021 02:41:57
+Proceso en ejecuccion: 10/08/2021 02:42:02
+Proceso en ejecuccion: 10/08/2021 02:42:07
+Proceso en ejecuccion: 10/08/2021 02:42:12
+Proceso en ejecuccion: 10/08/2021 02:42:17
+Proceso en ejecuccion: 10/08/2021 02:42:22
+Proceso en ejecuccion: 10/08/2021 02:42:27
+Proceso en ejecuccion: 10/08/2021 02:42:32
+Proceso en ejecuccion: 10/08/2021 02:42:37
+Proceso en ejecuccion: 10/08/2021 02:42:42
+Proceso en ejecuccion: 10/08/2021 02:42:47
+Proceso en ejecuccion: 10/08/2021 02:42:52
+Proceso en ejecuccion: 10/08/2021 02:42:57
+Proceso en ejecuccion: 10/08/2021 02:43:02
+Proceso en ejecuccion: 10/08/2021 02:43:07
+Proceso en ejecuccion: 10/08/2021 02:43:12
+Proceso en ejecuccion: 10/08/2021 02:43:17
+Proceso en ejecuccion: 10/08/2021 02:43:22
+Proceso en ejecuccion: 10/08/2021 02:43:27
+Proceso Finalizado

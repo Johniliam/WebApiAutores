@@ -8,13 +8,14 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using WebApiAutores.Entidades;
+using WebApiAutores.Filtros;
 using WebApiAutores.Servicios;
 
 namespace WebApiAutores.Controllers
 {
     [ApiController]
     [Route("api/autores")]
-    [Authorize]
+    //[Authorize]
     public class AutoresController : ControllerBase
     {
         private readonly ApplicationDbContext context;
@@ -39,8 +40,10 @@ namespace WebApiAutores.Controllers
         [HttpGet]               // api/autores               => RUTA
         [HttpGet("listado")]    // api/autores/listado       => RUTA
         [HttpGet("/listado")]   // listado                   => RUTA
+        [ServiceFilter(typeof(MiFiltroDeAccion))]
         public async Task<ActionResult<List<Autor>>> Get()
         {
+            throw new NotImplementedException();
             logger.LogInformation("Log de informacion");
             logger.LogWarning("Warning Log especial 2.0");
             servicio.RealizarTarea();
@@ -104,7 +107,8 @@ namespace WebApiAutores.Controllers
         }
 
         [HttpGet("GUID")]
-        [ResponseCache(Duration = 10)]
+        //[ResponseCache(Duration = 10)]
+        [ServiceFilter(typeof(MiFiltroDeAccion))]
         public ActionResult ObtenerGuids()
         {
             return Ok(new
